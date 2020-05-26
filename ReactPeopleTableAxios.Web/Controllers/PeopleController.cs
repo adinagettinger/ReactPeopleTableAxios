@@ -25,5 +25,30 @@ namespace ReactPeopleTableAxios.Web.Controllers
             PeopleRepository pr = new PeopleRepository(_connectionString);
             return pr.GetAllPeople();
         }
+
+        [Route("AddPerson")]
+        [HttpPost]
+        public void AddPerson(Person p)
+        {
+            PeopleRepository pr = new PeopleRepository(_connectionString);
+            pr.AddPerson(p);
+        }
+
+        [Route("DeletePerson")]
+        [HttpPost]
+        public void DeletePerson(Person person)
+        {
+            PeopleRepository pr = new PeopleRepository(_connectionString);
+            pr.DeletePerson(person.id);
+            
+        }
+        [Route("EditPerson")]
+        [HttpPost]
+        public void EditPerson(Person person)
+        {
+            PeopleRepository pr = new PeopleRepository(_connectionString);
+            pr.EditPerson(person);
+
+        }
     }
 }
